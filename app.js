@@ -1,6 +1,7 @@
-const budgetAmount = document.getElementById("budget-amount")
-const expenseAmount = document.getElementById("expense-amount")
-const balanceAmount = document.getElementById("balance-amount")
+const budgetAmount = document.getElementById("budget-amount");
+const expenseAmount = document.getElementById("expense-amount");
+const balanceAmount = document.getElementById("balance-amount");
+const expenseString = document.querySelector('expense-string');
 
 const revert = document.getElementById("revert")
 
@@ -44,6 +45,8 @@ addBudget.addEventListener("submit", (e) => {
     getBudgetAmount(budgetInput.value)
     
 })
+
+
 
 
 

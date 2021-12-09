@@ -45,7 +45,7 @@
       <!-- Button trigger modal this will be the add expense button -->
       <button
         type="button"
-        class="btn btn-primary"
+        class="btn btn-primary btn-exp"
         id="new-expense"
         data-toggle="modal"
         data-target="#budget-modal"
@@ -69,6 +69,7 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
+                    <!-- description -->
                   <label for="expenseDescription">Expense Description</label>
                   <input
                     type="text"
@@ -79,6 +80,7 @@
                   />
                 </div>
                 <div class="form-group">
+                    <!-- expsense cost -->
                   <label for="expenseCost">Expense Cost</label>
                   <input
                     type="number"
@@ -98,16 +100,21 @@
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">Add expense</button>
+              <!-- button to populate table -->
+              <button type="button" class="btn btn-primary" id="exp-entry">Add expense</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <br>
 
     <div class="expenseListContainer">
         <div class="singleExpense">
-
+            <p id="exp">Groceries</p>
+        </div>
+        <div class="expenseCost">
+            <p id="price">$400</p>
         </div>
     </div>
 
