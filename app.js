@@ -4,9 +4,9 @@ const balanceAmount = document.getElementById("balance-amount")
 
 const revert = document.getElementById("revert")
 
-const budgetInput = document.getElementById("budget-number");
-const expenseInput = document.getElementById('')
+
 const addBudget = document.getElementById("add-budget");
+const budgetInput = document.getElementById("budget-number");
 
 
 
@@ -44,6 +44,32 @@ addBudget.addEventListener("submit", (e) => {
     getBudgetAmount(budgetInput.value)
     
 })
+
+
+
+
+const expenseInput = document.getElementById('expense-number')
+const expenseName = document.getElementById('expense-string')
+
+let index = 0;
+let expenses = []
+
+function calculateExpenses() {
+    let totalExp = 0
+    for (let i = 0; i < expenses.length; i++) {
+        totalExp = expenses[i].number + totalExp;
+        
+    }
+    expenseInput.innerText = totalExp;
+    updateBalance()
+}
+
+
+function updateBalance() {
+  balanceAmount.innerText =
+    parseInt(budgetAmount.innerText) - parseInt(expenseAmount.innerText);
+}
+
 
 
 
