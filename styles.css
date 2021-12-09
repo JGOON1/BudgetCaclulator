@@ -17,3 +17,11 @@
 
 
 
+.btn, .btn-primary, .btn-exp {
+    opacity: 0
+}
+
+
+.btn, .btn-pimary, .btn-exp, .active{
+    opacity: 1
+}

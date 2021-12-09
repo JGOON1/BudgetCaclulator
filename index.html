@@ -30,17 +30,20 @@
         <p>$<span id="balance-amount">0</span></p>
       </div>
     </div>
-
-    <button id="revert">Use previous budget</button>
+<!-- 
+    <button id="revert">Use previous budget</button> -->
 
     <div class="form-container">
+        <button class="btn btn-danger" id="revert">Use previous budget</button>
+
       <div class="budget-form" id="budgetform">
         <form id="add-budget">
           <label for=""> Make a budget</label> <br />
           <input type="number" id="budget-number" /> <br />
-          <button type="submit">Add Budget</button>
+          <button class="btn btn-secondary" type="submit">Add Budget</button>
         </form>
       </div>
+
 
       <!-- Button trigger modal this will be the add expense button -->
       <button
@@ -48,14 +51,14 @@
         class="btn btn-primary btn-exp"
         id="new-expense"
         data-toggle="modal"
-        data-target="#budget-modal"
+        data-target="#expense-modal"
       >
         New expense
       </button>
 
       <div
         class="modal fade"
-        id="budget-modal"
+        id="expense-modal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"

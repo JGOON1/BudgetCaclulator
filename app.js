@@ -3,7 +3,7 @@ const expenseAmount = document.getElementById("expense-amount");
 const balanceAmount = document.getElementById("balance-amount");
 
 
-
+const newExpense = document.getElementById("new-expense")
 const revert = document.getElementById("revert")
 
 
@@ -13,13 +13,19 @@ const budgetInput = document.getElementById("budget-number");
 
 
 
+
 function getBudgetAmount(budget) {
     if (!budget) {
         budgetInput.placeholder = "Please input a budget"
+        newExpense.classList.remove('active')
+        console.log(newExpense)
+
     } else {
         budgetAmount.innerText = budget;
         balanceAmount.innerText = budget;
         localStorage.setItem('budget', budget)
+        newExpense.classList.add('active') 
+        console.log(newExpense)
         budgetInput.value = "";
     }
     // if (!localStorage.getItem('budget')) {
@@ -110,7 +116,7 @@ function expDisplay(expenses) {
             </div>
        ` 
        console.log(values)
-       expenseAmount.innerHTML = expenses[i].cost
+      
     }
     console.log(expenses)
     calculateExpenses();
@@ -123,7 +129,7 @@ const expenseName = document.getElementById('expense-string')
 function calculateExpenses() {
     let totalExp = 0
     for (let i = 0; i < expenses.length; i++) {
-        totalExp = expenses[i].number + totalExp;
+        totalExp = expenses[i].cost + totalExp;
         
     }
     expenseInput.innerText = totalExp;
@@ -135,13 +141,6 @@ function updateBalance() {
   balanceAmount.innerText =
     parseInt(budgetAmount.innerText) - parseInt(expenseAmount.innerText);
 }
-
-
-
-
-
-
-
 
 
 
