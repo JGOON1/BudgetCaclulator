@@ -15,6 +15,12 @@
     justify-content: space-around;
 }
 
+.values {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+}
+
 
 
 .btn, .btn-primary, .btn-exp {
