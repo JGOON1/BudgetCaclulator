@@ -5,6 +5,7 @@ const newExpense = document.getElementById("new-expense")
 const revert = document.getElementById("revert")
 const addBudget = document.getElementById("add-budget");
 const budgetInput = document.getElementById("budget-number");
+const deleteBudget = document.getElementById("delete-budget");
 function getBudgetAmount(budget) {
     if (!budget) {
         budgetInput.placeholder = "Please input a budget"
@@ -106,3 +107,13 @@ function updateBalance() {
   balanceAmount.innerText =
     parseInt(budgetAmount.innerText) - parseInt(expenseAmount.innerText);
 }
+
+
+//clear field
+deleteBudget.addEventListener('click', (e) => {
+    e.preventDefault();
+    expenseAmount.innerText = 0
+    budgetAmount.innerText = 0
+    balanceAmount.innerText = 0
+    values.innerHTML = ""
+})
