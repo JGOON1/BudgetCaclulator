@@ -71,6 +71,7 @@ const expenseNumber = document.querySelector('#expense-number');
 const expEntry = document.getElementById('exp-entry');
 const expContainer = document.getElementById('expenseListContainer')
 
+
 let id = 0;
 let expenses = []
 
@@ -102,8 +103,52 @@ expEntry.addEventListener('click', (e) => {
     // console.log(expenseNumber.value)
 })
 
+let id = 0;
+let expenses = []
+
+function createNewExpense(name, number) {
+    if (!name.length || !number.length || !budgetAmount) {
+        expenseString.placeholder = "input can not be empty";
+        expenseNumber.placeholder = "input can not be empty";
+    } else {
+        const userExp = {
+            id: id,
+            name: name,
+            cost: Number(number)
+        };
+
+        expenses.push(userExp);
+        expDisplay(expenses);
+        id++;
+        expenseString.value = "";
+        expenseNumber.value = "";
+    }
+}
+
+expEntry.addEventListener('click', (e) => {
+    e.preventDefault();
+    createNewExpense(expenseString.value, expenseNumber.value)
+    // console.log(expenseString, expenseNumber)
+    // console.log(expenseNumber.value)
+})
 
 
+
+
+function expDisplay(expenses) {
+    values.innerHTML = null;
+    for (i = 0; i < expenses.length; i++) {
+        values.innerHTML += `
+            <div class="values" id="${expenses[i].id}">
+                <p>
+                    <span>${expenses[i].name}</span> <span> $${expenses[i].cost}</span>
+                </p>
+            </div>
+       ` 
+
+    }
+    calculateExpenses();
+}
 
 function expDisplay(expenses) {
     values.innerHTML = null;
@@ -132,7 +177,8 @@ function calculateExpenses() {
         totalExp = expenses[i].cost + totalExp;
         
     }
-    expenseInput.innerText = totalExp;
+    expenseAmount.innerText = totalExp;
+    console.log(totalExp)
     updateBalance()
 }
 
