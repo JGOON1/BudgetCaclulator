@@ -25,7 +25,6 @@ function getBudgetAmount(budget) {
         balanceAmount.innerText = budget;
         localStorage.setItem('budget', budget)
         newExpense.classList.add('active') 
-        console.log(newExpense)
         budgetInput.value = "";
     }
     // if (!localStorage.getItem('budget')) {
@@ -40,8 +39,6 @@ revert.addEventListener("click", function(){
     const found = localStorage.getItem("budget");
     const num = Number(found)
     const remade = JSON.parse(num)
-    console.log(remade)
-    console.log(typeof(remade))
     budgetAmount.innerText= remade
     balanceAmount.innerText = remade
 })
@@ -84,9 +81,7 @@ function createNewExpense(name, number) {
             name: name,
             cost: Number(number)
         };
-        console.log(userExp.cost)
-        console.log(typeof(userExp.cost))
-        console.log(userExp)
+
         expenses.push(userExp);
         expDisplay(expenses);
         id++;
@@ -97,8 +92,12 @@ function createNewExpense(name, number) {
 
 expEntry.addEventListener('click', (e) => {
     e.preventDefault();
-    createNewExpense(expenseString.value, expenseNumber.value)
-    // console.log(expenseString, expenseNumber)
+    if(budgetAmount.innerText == 0) {
+        expenseString.value = "";
+        expenseNumber.value = "";
+        expenseString.placeholder = "Please input a budget first";
+        expenseNumber.placeholder = "Please input a budget first";
+    } else createNewExpense(expenseString.value, expenseNumber.value)
     // console.log(expenseNumber.value)
 })
 
@@ -111,14 +110,12 @@ function expDisplay(expenses) {
         values.innerHTML = values.innerHTML + `
             <div class="values" id="${expenses[i].id}">
                 <p>
-                    <span>${expenses[i].name}</span> <span> $${expenses[i].cost}</span>
+                    <span>Expense: ${expenses[i].name}</span> <span> $${expenses[i].cost}</span>
                 </p>
             </div>
        ` 
-       console.log(values)
       
     }
-    console.log(expenses)
     calculateExpenses();
 }
 
@@ -132,7 +129,9 @@ function calculateExpenses() {
         totalExp = expenses[i].cost + totalExp;
         
     }
-    expenseInput.innerText = totalExp;
+    console.log(totalExp)
+    expenseAmount.innerText = totalExp;
+    console.log(expenseInput.innerText)
     updateBalance()
 }
 
