@@ -30,32 +30,35 @@
         <p>$<span id="balance-amount">0</span></p>
       </div>
     </div>
-
-    <button id="revert">Use previous budget</button>
+<!-- 
+    <button id="revert">Use previous budget</button> -->
 
     <div class="form-container">
+        <button class="btn btn-danger" id="revert">Use previous budget</button>
+
       <div class="budget-form" id="budgetform">
         <form id="add-budget">
           <label for=""> Make a budget</label> <br />
           <input type="number" id="budget-number" /> <br />
-          <button type="submit">Add Budget</button>
+          <button class="btn btn-secondary" type="submit">Add Budget</button>
         </form>
       </div>
+
 
       <!-- Button trigger modal this will be the add expense button -->
       <button
         type="button"
-        class="btn btn-primary"
+        class="btn btn-primary btn-exp"
         id="new-expense"
         data-toggle="modal"
-        data-target="#budget-modal"
+        data-target="#expense-modal"
       >
-        Add expense
+        New expense
       </button>
 
       <div
         class="modal fade"
-        id="budget-modal"
+        id="expense-modal"
         tabindex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
@@ -69,6 +72,7 @@
             <div class="modal-body">
               <form>
                 <div class="form-group">
+                    <!-- description -->
                   <label for="expenseDescription">Expense Description</label>
                   <input
                     type="text"
@@ -79,6 +83,7 @@
                   />
                 </div>
                 <div class="form-group">
+                    <!-- expsense cost -->
                   <label for="expenseCost">Expense Cost</label>
                   <input
                     type="number"
@@ -98,17 +103,21 @@
               >
                 Close
               </button>
-              <button type="button" class="btn btn-primary">Add expense</button>
+              <!-- button to populate table -->
+              <button type="button" class="btn btn-primary" id="exp-entry">Add expense</button>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <br>
 
-    <div class="expenseListContainer">
-        <div class="singleExpense">
+    
+    <div id="expenseListContainer">
+      <div id="values">
 
-        </div>
+      </div>
+
     </div>
 
     <script
